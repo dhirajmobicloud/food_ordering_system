@@ -10,6 +10,7 @@ import Overview1 from './Components/Hotels/Hotel 1/Overview1';
 import Order1 from './Components/Hotels/Hotel 1/Order1';
 import Reviews1 from './Components/Hotels/Hotel 1/Reviews1';
 import Menu1 from './Components/Hotels/Hotel 1/Menu1';
+import OrderPage from './Components/Hotels/Hotel 1/OrderPage';
 
 function App() {
   return (
@@ -17,12 +18,12 @@ function App() {
       <Navbar />
       <Routes>
 
-        <Route path='/' element={<Dashboard />} />
-        <Route path='/hotel_1111' element={<Hotel1 />}>
-          <Route path='overview1' element={<Overview1 />} />
-          <Route path='order1' element={<Order1 />} />
-          <Route path='reviews1' element={<Reviews1 />} />
-          <Route path='menu1' element={<Menu1 />} />
+        <Route  path='/' element={<Dashboard />} />
+        <Route  path='/hotel_1111' element={<Hotel1 />}>
+          <Route  path='order1' element={<OrderPage />}/>
+          <Route exact path='overview1' element={<Overview1 />} />
+          <Route exact path='reviews1' element={<Reviews1 />} />
+          <Route exact path='menu1' element={<Menu1 />} />
         </Route>
 
       </Routes>

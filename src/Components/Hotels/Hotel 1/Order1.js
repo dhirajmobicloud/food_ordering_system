@@ -1,52 +1,49 @@
 import { useEffect, useState } from "react";
+// import { Link, Outlet } from 'react-router-dom'
 import styled from "styled-components";
+import Loder from "../../Loders/Loder";
 import ItemCard from "./ItemCard";
 
-const Order1 =(props)=>{
+const Order1 = (props) => {
 
     const [items, setItems] = useState([])
+    const [loding, setLoding] = useState(false)
 
-    const Get_items =()=>{
-        fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=Breakfast`)
-        .then((res)=>{
-            return res.json()
-        }).then((res1)=>{
-            console.log(res1.meals)
-            setItems(res1.meals)
-        })
+  
+    let Category = props.Category
+    const Get_items = () => {
+        setLoding(true)
+        fetch(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${Category}`)
+            .then((res) => {
+                return res.json()
+            }).then((res1) => {
+                console.log(res1.meals)
+                setItems(res1.meals)
+                setLoding(false)
+            })
+            console.log("Get  items called")
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         Get_items();
-    },[])
+        console.log("Use effet called")
+        // eslint-disable-next-line 
+    },[Category])
 
-    return(
-        <ORDER className="d-flex">
-            <div className="sidebar">
-                <ul>
-                    <li className="nav-link">Recommended</li>
-                    <li className="nav-link">Meals and Thali </li>
-                    <li className="nav-link">Starters</li>
-                    <li className="nav-link">Main Course</li>
-                    <li className="nav-link">Breads</li>
-                    <li className="nav-link">Rice and Biryani </li>
-                    <li className="nav-link">Snacks All Day</li>
-                    <li className="nav-link">Accompaniments </li>
-                    <li className="nav-link">Desserts and Beverages </li>
-                </ul>
+    return (
+        <ORDER className="d-flex container">
+           
+            <div className="items row g-3 ">
+
+                { !loding ?  items.map((element) => {
+                    return <ItemCard key={element.idMeal} img={element.strMealThumb} title={`${element.strMeal}`} modal_title={element.strMeal} modal_id={element.idMeal} />
+                }):<Loder/>}
+
+
             </div>
-            <div className="items d-flex">
-
-                {items.map((element)=>{
-                    return <ItemCard img={element.strMealThumb} title={element.strMeal}/>
-                })}
-
-                {/* <ItemCard/>
-                <ItemCard/>
-                <ItemCard/>
-                <ItemCard/>
-                <ItemCard/> */}
-            </div>
+            {/* <div className="chef-image d-flex">
+                <img src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/chef-logo%2C-chef-poster%2C-chef-post-design-template-01dc0e03960c05a9ea1eb5ee46e769d7_screen.jpg?ts=1641408119" alt=""/>
+            </div> */}
         </ORDER>
     )
 }
@@ -57,30 +54,27 @@ const ORDER = styled.div`
 
 height: 500px;
 
-.sidebar{
-    width: 250px;
-    border-right: solid gold 1px;
-    height: 500px;
-    display: flex;
-}
-
-ul{
-    margin: auto;
-
-    li{
-        padding: 10px;
-        color: lightgoldenrodyellow;
-        font-size: 1.1rem;
-    }
-}
-
 .items{
-    flex-direction: column;
+    margin-top: 20px;
+    display: flex;
+    /* flex-direction: column; */
     overflow: scroll;
 }
 
 .items::-webkit-scrollbar{
     display: none;
  }
+
+ .chef-image {
+    margin: auto;
+    img {
+    width: 400px;
+    border-radius: 30px;
+    margin: auto;
+ }
+ }
+ 
+
+ 
 
 `;
