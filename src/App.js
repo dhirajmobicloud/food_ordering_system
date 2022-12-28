@@ -1,24 +1,33 @@
-import logo from './logo.svg';
 import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.css';
+import '../node_modules/bootstrap/dist/js/bootstrap.bundle'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import Dashboard from './Components/Dashboard/Dashboard';
+import Navbar from './Components/Header/Navbar';
+import Footer from './Components/Footer/Footer';
+import Hotel1 from './Components/Hotels/Hotel 1/Hotel1';
+import Overview1 from './Components/Hotels/Hotel 1/Overview1';
+import Order1 from './Components/Hotels/Hotel 1/Order1';
+import Reviews1 from './Components/Hotels/Hotel 1/Reviews1';
+import Menu1 from './Components/Hotels/Hotel 1/Menu1';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+
+        <Route path='/' element={<Dashboard />} />
+        <Route path='/hotel_1111' element={<Hotel1 />}>
+          <Route path='overview1' element={<Overview1 />} />
+          <Route path='order1' element={<Order1 />} />
+          <Route path='reviews1' element={<Reviews1 />} />
+          <Route path='menu1' element={<Menu1 />} />
+        </Route>
+
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
