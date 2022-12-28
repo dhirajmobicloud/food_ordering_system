@@ -133,7 +133,7 @@ input.search-submit {
 .navigation ul{
     display: flex;
     padding: 10px;
-    /* margin-left: 50px; */
+    margin-bottom: 0;
     border-bottom: solid gold 1px;
 
     li{
