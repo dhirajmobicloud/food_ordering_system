@@ -6,7 +6,7 @@ const Footer = () =>{
 
     return(
         <FOOTER>
-            <p>&#169; All rights reserved </p>
+            <p>&#169; Designed and developed by Mobicloud Technologies Pvt Ltd </p>
         </FOOTER>
     )
 }
