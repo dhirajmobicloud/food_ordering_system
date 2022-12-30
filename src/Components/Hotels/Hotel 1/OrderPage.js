@@ -41,8 +41,8 @@ const OrderPage = () => {
             </div>
 
             <Order1 Category={category ? category : "Starter"} />
-
         </ORDER_PAGE>
+        
 
     )
 }
@@ -55,13 +55,13 @@ display: flex;
 
 .sidebar{
     width: 250px;
-    border-right: solid gold 1px;
+    border-right:  solid #292525  1px;
     height: 500px;
     display: flex;
 }
 
 ul{
-    margin: auto;
+    margin: auto 0px;
 
     li{
         list-style-type: none;
@@ -70,6 +70,13 @@ ul{
         color: lightgoldenrodyellow;
         font-size: 1.1rem;
         cursor: pointer;
+        /* text-align: center; */
+
+        :hover{
+            background-color: #161616e0;
+            color: gold;
+            border-radius: 5px;
+        }
         
     }
     

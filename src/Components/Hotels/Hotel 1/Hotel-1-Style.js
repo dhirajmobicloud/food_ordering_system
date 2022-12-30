@@ -26,12 +26,13 @@ h1{
     color: gold;
     font-weight: 400;
     padding: 5px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 .Search {
   padding: 2rem;
   background-color: #0a0a0a;
+  margin: 20px auto;
 }
 
 input[type="search"] {
@@ -130,11 +131,17 @@ input.search-submit {
 }
 
 
-.navigation ul{
+.navigation {
+
+    display: flex;
+    border-bottom: solid gold 1px;
+    justify-content: space-between;
+
+  ul{
     display: flex;
     padding: 10px;
     margin-bottom: 0;
-    border-bottom: solid gold 1px;
+    /* border-bottom: solid gold 1px; */
 
     li{
       list-style-type: none;
@@ -151,6 +158,24 @@ input.search-submit {
     .link:focus{
         color: #d4b743;
     }
+}
+
+.cart{
+  margin: 5px 50px 5px 5px;
+  color: gold;
+  font-size: 1.5rem;
+  align-items: baseline;
+  background-color: #292826;
+  border-radius: 10px;
+  padding: 0px 10px;
+  cursor: pointer;
+
+  span{
+    margin: 5px;
+  }
+
+}
+
 }
 
 

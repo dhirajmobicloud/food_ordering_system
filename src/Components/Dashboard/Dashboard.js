@@ -1,11 +1,13 @@
 // import styled from "styled-components";
 // import logo from '../../assets/Logo.png'
-import Cart from "./Cart";
+import Card from "./Card";
 import { DASHBOARD } from "./Dashboard_style";
+// import { useNavigate } from "react-router-dom";
 // import {Search} from 'react-bootstrap-icons'
 
 const Dashboard = () => {
 
+    // const Navigate = useNavigate();
 
     return (
         <DASHBOARD>
@@ -26,10 +28,10 @@ const Dashboard = () => {
             <div className="container py-2">
                     <div className="row g-6 my-4">
                            
-                            <Cart hotel_name="hotel 1" hotel_id="hotel_1111"/>
-                            <Cart hotel_name="hotel 2" hotel_id="hotel_2222"/>
-                            <Cart hotel_name="hotel 3" hotel_id="hotel_3333"/>
-                            <Cart hotel_name="hotel 4" hotel_id="hotel_4444"/>
+                            <Card hotel_name="hotel 1" hotel_id="hotel_1" />
+                            <Card hotel_name="hotel 2" hotel_id="hotel_2"/>
+                            <Card hotel_name="hotel 3" hotel_id="hotel_3"/>
+                            <Card hotel_name="hotel 4" hotel_id="hotel_4"/>
                             
                     </div>
                 </div>

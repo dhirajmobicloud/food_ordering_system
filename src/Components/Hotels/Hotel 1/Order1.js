@@ -31,12 +31,12 @@ const Order1 = (props) => {
     },[Category])
 
     return (
-        <ORDER className="d-flex container">
+        <ORDER className=" container">
            
             <div className="items row g-3 ">
 
                 { !loding ?  items.map((element) => {
-                    return <ItemCard key={element.idMeal} img={element.strMealThumb} title={`${element.strMeal}`} modal_title={element.strMeal} modal_id={element.idMeal} />
+                    return <ItemCard key={element.idMeal} img={element.strMealThumb} title={`${element.strMeal.slice(0,15)}...`} Element={element} modal_title={element.strMeal} modal_id={element.idMeal} />
                 }):<Loder/>}
 
 
@@ -53,10 +53,11 @@ export default Order1
 const ORDER = styled.div`
 
 height: 500px;
+display: flex;
 
 .items{
     margin-top: 20px;
-    display: flex;
+    /* display: flex; */
     /* flex-direction: column; */
     overflow: scroll;
 }

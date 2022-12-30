@@ -1,7 +1,13 @@
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
+import { aadToCart } from "../../../Redux/Slice/cartSlice";
 
 const ItemCard = (props) => {
+    const dispatch = useDispatch();
 
+    const Add = (Element)=>{
+        dispatch(aadToCart(Element))
+    }
 
     return (
        
@@ -13,18 +19,18 @@ const ItemCard = (props) => {
                 <div className="col-md-8">
                     <div className="card-body" data-bs-toggle="modal" data-bs-target={`#${props.modal_id}`}>
                         <h5 className="card-title">{props.title}</h5>
-                        <p className="card-text">Ek baar khaoge bar bar aaoge</p>
+                        <p className="card-text">This dish is one of the best dish of our restaurant</p>
                         <p className="card-text"><small className="text-muted">Last updated 3 mins ago</small></p>
                     </div>
                     <div className="d-flex">
-                    <span id="add-to-cart" className="btn btn-sm btn-outline-danger">Add to cart</span>
+                    <span id="add-to-cart" onClick={()=>Add(props.Element)} className="btn btn-sm btn-outline-danger">Add to cart</span>
                     </div> 
                 </div>
                 <hr />
             </div>
 
             {/* <!-- Modal --> */}
-            <div  className="modal fade" id={props.modal_id} data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div  className="modal fade" id={props.modal_id} data-bs-backdrop="static" data-bs-keyboard="false" tabIndex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                 <div  className="modal-dialog ">
                     <div  className="modal-content">
                         <div  className="modal-header">
@@ -32,13 +38,13 @@ const ItemCard = (props) => {
                             <button type="button"  className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div  className="modal-body">
-                            <divi className="modal-image d-flex">
+                            <div className="modal-image d-flex">
                                     <img src={props.img} alt=""/>
-                            </divi>
+                            </div>
                         </div>
                         <div  className="modal-footer">
                             {/* <button type="button"  className="btn btn-secondary" data-bs-dismiss="modal">Close</button> */}
-                            <button type="button"  className="btn btn-sm btn-outline-danger">Add to cart</button>
+                            <button type="button" id="add-to-cart" className="btn btn-sm btn-outline-danger">Add to cart</button>
                         </div>
                     </div>
                 </div>
@@ -96,7 +102,8 @@ hr{
 
 .modal-content{
     background: black;
-    border: solid goldenrod .5px;
+    /* border: solid goldenrod .5px; */
+    border: solid #292525  1px;
     border-radius: 20px;
     margin: auto;
 }
